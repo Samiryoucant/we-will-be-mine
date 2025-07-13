@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💖 Will You Be Mine?</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', cursive, sans-serif;
+      background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+      color: #fff;
+      overflow-x: hidden;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+    }
+    .dark-mode {
+      background: #1a1a1a !important;
+      color: #f8d0d8 !important;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      font-size: 2.8em;
+      font-weight: bold;
+      animation: fadeInDown 2s ease;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .quote {
+      text-align: center;
+      font-size: 1.2em;
+      padding-bottom: 30px;
+      font-style: italic;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 20px;
+      width: 320px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      animation: fadeInUp 1s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card h3 {
+      font-size: 1.6em;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+    #proposal {
+      text-align: center;
+      margin: 60px 0;
+      animation: fadeInUp 2s ease;
+    }
+    #proposal button {
+      background-color: #ff4d88;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.5em;
+      border-radius: 40px;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    #proposal button:hover {
+      transform: scale(1.1);
+    }
+    #popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right:0;
+      bottom: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+      z-index: 1000;
+    }
+    #popupContent {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      color: #ff69b4;
+      font-size: 2em;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      animation: zoomIn 0.6s ease;
+    }
+    .answer-buttons {
+      margin-top: 30px;
+    }
+    .answer-buttons button {
+      font-size: 1.2em;
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+    .no {
+      background-color: #333;
+      color: #fff;
+    }
+    .yes:hover {
+      transform: scale(1.1);
+    }
+    .toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1em;
+      padding: 10px 20px;
+      border-radius: 20px;
+      background: #fff;
+      color: #ff69b4;
+      border: none;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+      opacity: 0.6;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+
+    @keyframes float {
+      0% {transform: translateY(0) rotate(45deg);}
+      100% {transform: translateY(-100vh) rotate(45deg);}
+    }
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes zoomIn {
+      from {transform: scale(0.5);}
+      to {transform: scale(1);}
+    }
+
+    .blackout {
+      background: black !important;
+      color: black !important;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle" onclick="toggleDark()">🌙 Toggle Mode</button>
+  <header>
+    💖 "You're the reason my heart smiles every day..." 💖
+  </header>
+  <div class="quote">"In you, I've found the one my soul loves."</div>
+
+  <section class="cards">
+    <div class="card">
+      <h3>🌹 A Rose for You</h3>
+      <p>Just like this rose, my love for you blooms endlessly. Will you be the sunshine in my garden?</p>
+    </div>
+    <div class="card">
+      <h3>🌙 Under the Stars</h3>
+      <p>If I could give you one thing, it would be the ability to see yourself through my eyes. You’d know how deeply I adore you.</p>
+    </div>
+    <div class="card">
+      <h3>🎶 My Heart’s Song</h3>
+      <p>Each heartbeat whispers your name. Will you be my forever melody?</p>
+    </div>
+    <div class="card">
+      <h3>💌 A Letter From the Soul</h3>
+      <p>I’ve written you into my heart — permanent and eternal. Will you write back with love?</p>
+    </div>
+    <div class="card">
+      <h3>✨ Your Smile = Magic</h3>
+      <p>Even the stars envy your smile. Let’s light up our lives together?</p>
+    </div>
+    <div class="card">
+      <h3>🫶 I Choose You</h3>
+      <p>In every lifetime, in every world — I’d choose you, every time.</p>
+    </div>
+  </section>
+
+  <div id="proposal">
+    <button onclick="showPopup()">💖 Will You Be Mine? 💖</button>
+  </div>
+
+  <div id="popup">
+    <div id="popupContent">
+      💌 My love, I have something to ask you... <br><br>
+      💍 Will you be my forever?
+      <div class="answer-buttons">
+        <button class="yes" onclick="acceptLove()">Yes 💕</button>
+        <button class="no" onclick="rejectLove()">No 😢</button>
+      </div>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function acceptLove() {
+      document.getElementById('popupContent').innerHTML = "💖 You made me the happiest person alive! 💖<br><br>Let’s start our forever, hand in hand!";
+    }
+
+    function rejectLove() {
+      document.body.classList.add("blackout");
+      document.getElementById('popup').style.display = "none";
+      alert("😭 My world went dark without your love...");
+    }
+
+    function toggleDark() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
